@@ -52,7 +52,6 @@ public abstract class XYGrapher
 	
 	public abstract Coordinate getPoint(int pointNum);
 	
-	@SuppressWarnings("empty-statement")
 	public void drawGraph(int xPixelStart, int yPixelStart, int pixelsWide, int pixelsHigh)
 	{
 		int i = 0;
@@ -85,6 +84,8 @@ public abstract class XYGrapher
 		}
 		
 		JPanel graph = new GraphPanel(xPixelStart, yPixelStart, pixelsWide, pixelsHigh, mapped);
-		
+		frame.add(graph);
+		frame.pack();
+		frame.setVisible(true);
 	}
 }
