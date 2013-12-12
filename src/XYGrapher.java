@@ -4,11 +4,11 @@ import javax.swing.*;
 
 public abstract class XYGrapher
 {
-	private ArrayList<Coordinate> coordinates;
-	int xStart;
-	int yStart;
-	int width;
-	int height;
+	private ArrayList<Coordinate> pixelCoordinates;
+	private int xStart;
+	private int yStart;
+	private int width;
+	private int height;
 	
 	public class GraphPanel extends JPanel
 	{
@@ -21,10 +21,10 @@ public abstract class XYGrapher
 			g.drawLine(xStart + width / 2, yStart, xStart + width / 2, yStart + height);
 			
 			g.setColor(Color.black);
-			for(int i = 0; i < coordinates.size() - 1; i++)
+			for(int i = 0; i < pixelCoordinates.size() - 1; i++)
 			{
-				Coordinate prev = coordinates.get(i);
-				Coordinate next = coordinates.get(i + 1);
+				Coordinate prev = pixelCoordinates.get(i);
+				Coordinate next = pixelCoordinates.get(i + 1);
 								
 				if(prev.drawFrom() && next.drawTo())
 				{
@@ -51,9 +51,6 @@ public abstract class XYGrapher
 		width = pixelsWide;
 		height = pixelsHigh;
 		
-		double X0 = xyStart().getX();
-		double Y0 = xyStart().getX();
-		
 		ArrayList<Coordinate> points = new ArrayList(0);
 		ArrayList<Coordinate> mapped = new ArrayList(0);
 		
@@ -78,11 +75,11 @@ public abstract class XYGrapher
 			int deltaY = (int) (Y1 * (pixelsHigh / yRange()));
 			
 			int X = centerX + deltaX;
-			int Y = centerY + deltaY;
+			int Y = centerY - deltaY;
 			mapped.add(new Coordinate(X, Y, df, dt));
 		}
 		
-		coordinates = mapped;
+		pixelCoordinates = mapped;
 		
 		JFrame frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
