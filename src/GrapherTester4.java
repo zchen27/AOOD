@@ -1,10 +1,10 @@
 
-public class XYTesterFinal extends XYGrapher
+public class GrapherTester4 extends XYGrapher
 {
 	
 	private static void runXYTesterFinal()
 	{
-		XYTesterFinal grapherTester = new XYTesterFinal();	
+		GrapherTester4 grapherTester = new GrapherTester4();	
 		grapherTester.drawGraph(0, 0, 750, 750);
 	}
 		
