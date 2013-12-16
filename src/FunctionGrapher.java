@@ -19,7 +19,7 @@ public abstract class FunctionGrapher extends XYGrapher
 		
 		if(x > (xStart + xRange()))
 		{
-			
+			return null;
 		}
 		else if((x >= xStart + xRange()) && (x - xIncrement() <= xStart + xRange()))
 		{

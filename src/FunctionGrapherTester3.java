@@ -1,5 +1,5 @@
 
-public class FunctionGrapherTester extends FunctionGrapher
+public class FunctionGrapherTester3 extends FunctionGrapher
 {
 	@Override
 	public double xIncrement()
@@ -10,7 +10,12 @@ public class FunctionGrapherTester extends FunctionGrapher
 	@Override
 	public double yValue(double xValue)
 	{
-		return Math.sin(xValue);
+		double y = 0;
+		for(int k = 0; k < (int) xValue / xIncrement(); k++)
+		{
+			
+		}
+		return 0;
 	}
 
 	@Override
@@ -31,9 +36,9 @@ public class FunctionGrapherTester extends FunctionGrapher
 		return 2;
 	}
 	
-	private static void runFunctionGrapherTester()
+	private static void runFunctionGrapherTester3()
 	{
-		FunctionGrapher functionGrapherTester = new FunctionGrapherTester();
+		FunctionGrapher functionGrapherTester = new FunctionGrapherTester3();
 		functionGrapherTester.drawGraph(0, 500, 500, 500);
 	}
 	
@@ -44,7 +49,7 @@ public class FunctionGrapherTester extends FunctionGrapher
 			@Override
 			public void run()
 			{
-				runFunctionGrapherTester();
+				runFunctionGrapherTester3();
 			}
 		};
 		javax.swing.SwingUtilities.invokeLater(run);
