@@ -9,16 +9,23 @@ public abstract class XYGrapher
 	private int yStart;
 	private int width;
 	private int height;
+	private int startX;
+	private int startY;
+	int oX;
+	int oY;
 	
 	public class GraphPanel extends JPanel
 	{
 		@Override
 		public void paintComponent(Graphics g)
 		{
+			
 			super.paintComponents(g);
+
 			g.setColor(Color.green);
-			g.drawLine(xStart, yStart + height / 2, xStart + width, yStart + height / 2);
-			g.drawLine(xStart + width / 2, yStart, xStart + width / 2, yStart + height);
+			g.drawLine(xStart, oY, (xStart + width), oY);
+			g.drawLine(oX, yStart, oX, (yStart + height));
+			
 			
 			g.setColor(Color.black);
 			for(int i = 0; i < pixelCoordinates.size() - 1; i++)
@@ -51,6 +58,14 @@ public abstract class XYGrapher
 		width = pixelsWide;
 		height = pixelsHigh;
 		
+		startX = (int) xyStart().getX();
+		startY = (int) xyStart().getY();
+		
+		int dOriginX = (int) ((0 - startX) * (width / xRange()));
+		int dOriginY = (int) ((0 - startY) * (height / yRange()));
+		oX = xStart - dOriginX;
+		oY = startY - dOriginY;
+		
 		ArrayList<Coordinate> points = new ArrayList(0);
 		ArrayList<Coordinate> mapped = new ArrayList(0);
 		
@@ -68,14 +83,11 @@ public abstract class XYGrapher
 			boolean df = points.get(j).drawFrom();
 			boolean dt = points.get(j).drawTo();
 			
-			int centerX = (int) (xPixelStart + pixelsWide / 2);
-			int centerY = (int) (yPixelStart + pixelsHigh / 2);
-			
 			int deltaX = (int) (X1 * (pixelsWide / xRange()));
 			int deltaY = (int) (Y1 * (pixelsHigh / yRange()));
 			
-			int X = centerX + deltaX;
-			int Y = centerY - deltaY;
+			int X = oX + deltaX;
+			int Y = oY - deltaY;
 			mapped.add(new Coordinate(X, Y, df, dt));
 		}
 		
