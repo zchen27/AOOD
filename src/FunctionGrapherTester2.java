@@ -34,7 +34,7 @@ public class FunctionGrapherTester2 extends FunctionGrapher
 	private static void runFunctionGrapherTester2()
 	{
 		FunctionGrapher functionGrapherTester = new FunctionGrapherTester2();
-		functionGrapherTester.drawGraph(0, 500, 500, 500);
+		functionGrapherTester.drawGraph(0, 0, 500, 500);
 	}
 	
 	public static void main(String[] args)
