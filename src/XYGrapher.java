@@ -26,7 +26,6 @@ public abstract class XYGrapher
 			g.drawLine(xStart, oY, (xStart + width), oY);
 			g.drawLine(oX, yStart, oX, (yStart + height));
 			
-			
 			g.setColor(Color.black);
 			for(int i = 0; i < pixelCoordinates.size() - 1; i++)
 			{
@@ -64,7 +63,7 @@ public abstract class XYGrapher
 		int dOriginX = (int) ((0 - startX) * (width / xRange()));
 		int dOriginY = (int) ((0 - startY) * (height / yRange()));
 		oX = xStart + dOriginX;
-		oY = yStart - dOriginY;
+		oY = yStart + dOriginY;
 		
 		ArrayList<Coordinate> points = new ArrayList(0);
 		ArrayList<Coordinate> mapped = new ArrayList(0);
@@ -74,8 +73,6 @@ public abstract class XYGrapher
 			points.add(getPoint(i));
 			i++;
 		}
-		
-		System.out.println(oX + " " + oY);
 		
 		for(int j = 0; j < points.size(); j++)
 		{
@@ -88,19 +85,11 @@ public abstract class XYGrapher
 			int deltaX = (int) (X1 * (pixelsWide / xRange()));
 			int deltaY = (int) (Y1 * (pixelsHigh / yRange()));
 			
+			
 			int X = oX + deltaX;
 			int Y = oY - deltaY;
 			mapped.add(new Coordinate(X, Y, df, dt));
 		}
-		
-		
-		/*for(int k = 0; k < points.size(); k++)
-		{
-			Coordinate test = mapped.get(k);
-			System.out.println(test.getX());
-			System.out.println(test.getY());
-			System.out.println("");
-		}*/
 		
 		pixelCoordinates = mapped;
 		

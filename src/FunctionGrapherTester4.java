@@ -1,5 +1,5 @@
 
-public class FunctionGrapherTester3 extends FunctionGrapher
+public class FunctionGrapherTester4 extends FunctionGrapher
 {
 	@Override
 	public double xIncrement()
@@ -10,13 +10,13 @@ public class FunctionGrapherTester3 extends FunctionGrapher
 	@Override
 	public double yValue(double xValue)
 	{
-		return Math.sin(10 * xValue) * Math.pow(0.5, xValue);
+		return xValue + Math.sin(xValue);
 	}
 
 	@Override
 	public Coordinate xyStart()
 	{
-		return new Coordinate(0, -1);
+		return new Coordinate(-10, -10);
 	}
 
 	@Override
@@ -28,10 +28,10 @@ public class FunctionGrapherTester3 extends FunctionGrapher
 	@Override
 	public double yRange()
 	{
-		return 2;
+		return 20;
 	}
 	
-	private static void runFunctionGrapherTester3()
+	private static void runFunctionGrapherTester4()
 	{
 		FunctionGrapher functionGrapherTester = new FunctionGrapherTester3();
 		functionGrapherTester.drawGraph(0, 0, 500, 500);
@@ -44,7 +44,7 @@ public class FunctionGrapherTester3 extends FunctionGrapher
 			@Override
 			public void run()
 			{
-				runFunctionGrapherTester3();
+				runFunctionGrapherTester4();
 			}
 		};
 		javax.swing.SwingUtilities.invokeLater(run);
