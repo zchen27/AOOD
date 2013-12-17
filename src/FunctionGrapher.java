@@ -29,7 +29,6 @@ public abstract class FunctionGrapher extends XYGrapher
 		{
 
 		}
-		
 		return new Coordinate(x, y, true, true);
 	}
 }
