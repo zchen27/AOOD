@@ -10,7 +10,7 @@ public class FunctionGrapherTester4 extends FunctionGrapher
 	@Override
 	public double yValue(double xValue)
 	{
-		return xValue + Math.sin(xValue);
+		return Math.cos(xValue) * Math.sin(10 * xValue);
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class FunctionGrapherTester4 extends FunctionGrapher
 	
 	private static void runFunctionGrapherTester4()
 	{
-		FunctionGrapher functionGrapherTester = new FunctionGrapherTester3();
+		FunctionGrapher functionGrapherTester = new FunctionGrapherTester4();
 		functionGrapherTester.drawGraph(0, 0, 500, 500);
 	}
 	
