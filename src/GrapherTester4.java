@@ -5,7 +5,7 @@ public class GrapherTester4 extends XYGrapher
 	@Override
 	public Coordinate xyStart()
 	{
-		return(new Coordinate(3, 3));
+		return(new Coordinate(0, 0));
 	}
 
 	@Override

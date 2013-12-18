@@ -8,9 +8,9 @@ public abstract class PolynomialGrapher extends FunctionGrapher
 	{
 		double[] coefficients = coefficients();
 		double y = 0;
-		for(int i = 0; i < coefficients.length; i++)
+		for(int i = coefficients.length - 1; i >= 0 ; i--)
 		{
-			y += coefficients[i] * Math.pow(xValue, (coefficients.length - i));
+			y += coefficients[i] * Math.pow(xValue, i);
 		}
 		return y;
 	}
