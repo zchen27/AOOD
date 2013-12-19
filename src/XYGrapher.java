@@ -37,12 +37,6 @@ public abstract class XYGrapher
 					g.drawLine((int) prev.getX(), (int) prev.getY(), (int) next.getX(), (int) next.getY());
 				}
 			}
-			
-			/*g.setColor(Color.white);
-			g.fillRect(xStart - 5000, yStart + height, 10000, 10000);
-			g.fillRect(xStart - 5000, yStart, 10000, 10000);
-			g.fillRect(xStart - 10000, yStart - 5000, 10000, 10000);
-			g.fillRect(xStart + width, yStart, 10000, 10000);*/
 		}
 	}
 	
